@@ -1,17 +1,20 @@
 steps:
 
+- id: "Mudando de diretório"
+  cmd: ['cd','src/']
+
 - id: "Instalando Go"
   name: 'gcr.io/cloud-builders/go'
-  args: ['install','./src']
+  args: ['install','.']
   env: ['PROJECT_ROOT=soma']
 
 - id: "Testando"
   name: 'gcr.io/cloud-builders/go'
-  args: ['cd','src','test','soma']
+  args: ['test','soma']
   env: ['PROJECT_ROOT=soma']
 
 - id: "Fazendo o build da imagem"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', './src']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', '.']
 
 images: ['gcr.io/$PROJECT_ID/soma']
