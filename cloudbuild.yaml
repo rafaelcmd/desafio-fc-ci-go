@@ -1,8 +1,5 @@
 steps:
 
-- id: "Mudando de diretório"
-  cmd: ['cd','src/']
-
 - id: "Instalando Go"
   name: 'gcr.io/cloud-builders/go'
   args: ['install','.']
