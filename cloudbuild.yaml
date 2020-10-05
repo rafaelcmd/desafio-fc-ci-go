@@ -1,16 +1,17 @@
 steps:
 
-  - id: "Instalando Go"
-    name: 'gcr.io/cloud-builders/go'
-    args: ['install','.']
-    env: ['PROJECT_ROOT=soma']
+- id: "Instalando Go"
+  name: 'gcr.io/cloud-builders/go'
+  args: ['install','.']
+  env: ['PROJECT_ROOT=soma']
 
-  - id: "Testando"
-    name: 'gcr.io/cloud-builders/go'
-    args: ['test','soma']
-    env: ['PROJECT_ROOT=soma']
+- id: "Testando"
+  name: 'gcr.io/cloud-builders/go'
+  args: ['test','soma']
+  env: ['PROJECT_ROOT=soma']
 
-  - id: "Fazendo o build da imagem"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', '.']
-  images: ['gcr.io/$PROJECT_ID/soma']
+- id: "Fazendo o build da imagem"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', '.']
+
+images: ['gcr.io/$PROJECT_ID/soma']
