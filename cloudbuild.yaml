@@ -7,11 +7,11 @@ steps:
 
 - id: "Testando"
   name: 'gcr.io/cloud-builders/go'
-  args: ['test','soma']
+  args: ['cd','src','test','soma']
   env: ['PROJECT_ROOT=soma']
 
 - id: "Fazendo o build da imagem"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/soma', './src']
 
 images: ['gcr.io/$PROJECT_ID/soma']
